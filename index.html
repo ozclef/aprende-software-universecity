@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>WINDOWS 10 Tiny — Universe City · Os</title>
+<style>
+  /* Reset liviano */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:#00111b;}
+  /* fondo tipo teclado azul (gradiente + noise) */
+  body{
+    background:
+      radial-gradient(circle at 10% 10%, rgba(0,140,255,0.06), transparent 10%),
+      linear-gradient(180deg,#001833 0%, #00102a 60%, #000814 100%);
+    color:#e6f7ff;
+    -webkit-font-smoothing:antialiased;
+    padding:28px;
+  }
+
+  .container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns: 1fr 380px;gap:20px;align-items:start}
+  header{grid-column:1/-1;display:flex;align-items:center;gap:18px;margin-bottom:8px}
+  .logo {
+    background:linear-gradient(90deg,#0af,#06c);
+    padding:8px 14px;border-radius:10px; box-shadow: 0 6px 18px rgba(2,40,95,0.45);
+    display:flex;gap:10px;align-items:center;
+  }
+  .logo .square{width:48px;height:48px;border-radius:8px;background:linear-gradient(180deg,#062b66,#01345a);display:flex;align-items:center;justify-content:center;font-weight:700;color:#9fe;box-shadow:inset 0 -6px 18px rgba(0,0,0,0.35)}
+  h1{font-size:20px;letter-spacing:0.6px}
+  .sub{color:#bfe9ff;opacity:.85;font-size:12px}
+
+  /* tarjeta principal */
+  .card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(120,200,255,0.06);
+    padding:18px;border-radius:12px;backdrop-filter: blur(6px);
+    box-shadow: 0 6px 30px rgba(0,10,40,0.5);
+  }
+  .hero-title{font-size:28px;color:#dff9ff;margin-bottom:6px}
+  .hero-sub{color:#bfe9ff;opacity:.9;margin-bottom:14px}
+  .badge{display:inline-block;background:rgba(7,60,120,0.35);padding:6px 10px;border-radius:999px;font-size:12px;color:#cff; margin-right:8px}
+
+  /* grid de secciones */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+  .panel{padding:12px;border-radius:10px;border:1px solid rgba(120,200,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005))}
+  .panel h3{font-size:14px;margin-bottom:6px}
+  .muted{font-size:13px;color:#cdeefc;opacity:.9;line-height:1.35}
+
+  /* right column */
+  aside{display:flex;flex-direction:column;gap:12px}
+  .small{font-size:13px;color:#bfe9ff}
+  .cta{display:block;padding:10px 12px;background:linear-gradient(90deg,#07b,#05a);border-radius:10px;text-align:center;color:#eaffff;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(3,35,80,0.6)}
+  footer{grid-column:1/-1;margin-top:16px;color:#98e6ff;opacity:.75;font-size:13px;text-align:center}
+
+  /* nice list */
+  ul.tips{list-style:none;padding-left:0}
+  ul.tips li{padding:6px 0;border-bottom:1px dashed rgba(120,200,255,0.03);font-size:13px}
+
+  pre.cmd{background:rgba(0,0,0,0.25);padding:10px;border-radius:8px;font-size:13px;color:#dff;overflow:auto}
+  /* responsive */
+  @media (max-width:980px){
+    .container{grid-template-columns:1fr; padding:18px}
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">
+      <div class="square">TINY</div>
+      <div>
+        <h1>WINDOWS 10 Tiny <span class="sub">· Universe City · OS</span></h1>
+        <div style="margin-top:4px" class="sub">Anuncio · Configuración ligera · Tips para Celeron</div>
+      </div>
+    </div>
+    <div style="margin-left:auto" class="sub">Live: <strong style="color:#bff">LONE HERO</strong></div>
+  </header>
+
+  <!-- left / main -->
+  <main class="card">
+    <div class="hero">
+      <div class="badge">Optimizado</div>
+      <div class="hero-title">Mantén viva tu Celeron — streaming y rendimiento</div>
+      <div class="hero-sub">Guía práctica para hacer más con menos: configuración OBS, límite de recursos, y upgrades que sí valen la pena.</div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h3>✓ Tips rápidos: rendimiento OS</h3>
+        <p class="muted">Aplica estos pasos en Tiny10 / Enterprise: menos procesos = más FPS y estabilidad.</p>
+        <ul class="tips">
+          <li>1) Desactivar servicios no usados (bloat): impresoras, telemetría, actualización automática si necesitas control.</li>
+          <li>2) Power plan: Alto rendimiento cuando streameas. (Panel de control → Energía)</li>
+          <li>3) Prioridad OBS: Desde el administrador de tareas pon proceso en "Por encima de lo normal".</li>
+          <li>4) Cerrar navegadores y apps antes de jugar / grabar.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>⚙️ OBS (settings sugeridos para Celeron 4GB)</h3>
+        <p class="muted">Objetivo: stream estable sin saturar CPU. Baja resolución y preset ultrafast.</p>
+        <ul class="tips">
+          <li><strong>Salida (Streaming)</strong>: Encoder: x264 · Preset: ultrafast / superfast</li>
+          <li><strong>Resolución base / de salida</strong>: 1280×720 → 854×480 o 640×360 si notas caídas</li>
+          <li><strong>FPS</strong>: 30 FPS</li>
+          <li><strong>Bitrate</strong>: 800–2000 kbps (480p ~ 800–1200, 720p ~ 1800–2500 si tu upload aguanta)</li>
+          <li><strong>Audio</strong>: 96 kbps</li>
+        </ul>
+        <div style="margin-top:8px" class="muted">Tip: usa <strong>Game Capture</strong> si el juego lo permite. Si tu CPU no aguanta, graba local a baja compresión y sube después.</div>
+      </div>
+
+      <div class="panel">
+        <h3>📦 Upgrades que sí rinden</h3>
+        <p class="muted">Prioriza: SSD > RAM (hasta cierta medida). Cambios que notarás.</p>
+        <ul class="tips">
+          <li>SSD SATA (2.5"): arranque y carga de apps instantáneo. Adaptador SATA→USB puede usarse para clonar imagen.</li>
+          <li>RAM: +4GB si la placa lo permite. Muchas laptops HP 14-bs aceptan 1 slot SODIMM; revisa manual o usa Crucial Scanner.</li>
+          <li>Enfriamiento: limpiar polvo y aplicar pasta térmica mejora throttling.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>🛠 Cómo clonar tu perfil (Telegram portable)</h3>
+        <p class="muted">Si usas Telegram Portable: copia la carpeta <code>tdata/</code> completa a Tiny10 y no perderás sesión.</p>
+        <pre class="cmd">C:\Users\TU_USUARIO\Desktop\Telegram\ tdata\ → copiar a Tiny10:\Telegram\tdata\</pre>
+      </div>
+    </div>
+
+    <section style="margin-top:12px">
+      <h3 style="margin-bottom:8px">🌆 Universe City — anuncio</h3>
+      <div class="muted">Usa este banner para promocionar tu servicio: "Soporte técnico, optimización Windows Tiny, streaming low-end, reparación y upgrades (SSD/RAM) — contacto: @tuUsuario".</div>
+      <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+        <a class="cta" href="#" onclick="alert('Copiado al portapapeles (simulado)');return false">Copiar banner</a>
+        <div style="font-size:13px;color:#cfe;margin-left:8px">Precio sugerido: 250 MXN (mini-servicio) · 700 MXN (display / montaje)</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- right column -->
+  <aside>
+    <div class="card small">
+      <h3 style="margin-bottom:6px">Estado · Os</h3>
+      <div class="muted">Celeron · 4GB RAM · OBS funcionando · GPU integr. · Objetivo: stream + gaming ligero</div>
+      <div style="margin-top:10px;font-size:13px;color:#cfe">
+        Último: lograste streamear Geometry Dash cuidando FPS. Eso es big win.
+      </div>
+    </div>
+
+    <div class="card small">
+      <h3 style="margin-bottom:8px">Comandos útiles</h3>
+      <pre class="cmd"># Ver memoria (PowerShell)
+wmic MEMORYCHIP get BankLabel, Capacity, DeviceLocator, MemoryType
+
+# Clonar disco (ejemplo: usar Macrium/Win32DiskImager o Clonezilla)
+</pre>
+      <div class="muted" style="margin-top:8px">Si no estás seguro del slot RAM, abre la tapa o usa el Crucial System Scanner (web) para modelo exacto.</div>
+    </div>
+
+    <div class="card small">
+      <h3 style="margin-bottom:6px">Contacto</h3>
+      <div class="muted">@os · Universe City</div>
+      <div style="margin-top:8px">
+        <a class="cta" href="#" onclick="navigator.clipboard?.writeText('@os')">Copiar usuario</a>
+      </div>
+    </div>
+  </aside>
+
+  <footer>
+    Made with ❤️ for Celeron warriors · Tiny tips & tricks · Keep streaming, keep building.
+  </footer>
+</div>
+
+<script>
+  // pequeños extras: copiar banner / usuario
+  document.querySelectorAll('.cta').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      // comportamiento ya manejado inline; evitar navegación real
+    })
+  })
+</script>
+</body>
+</html>
